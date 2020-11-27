@@ -1,0 +1,15 @@
+# You can use this file to create a conda environment for this pipeline:
+#   conda env create -f environment.yml
+name: gwas-sumstats-harmoniser
+channels:
+  - conda-forge
+  - bioconda
+  - ak_93
+  - GlaxoSmithKline
+  - defaults
+dependencies:
+  # conda-forge channel packages first
+  - conda-forge::python=3.8.5 # latest version available at the time of making container
+
+  # bioconda channel packages second
+  - bioconda::htslib=1.11
