@@ -10,7 +10,7 @@ rule get_vcf_files:
         local_resources=config["local_resources"]
     shell:
         "mkdir -p {params.local_resources}; "
-        "wget -P {params.local_resources} {params.remote_location}/homo_sapiens-chr{wildcards.chromosome}.vcf.gz"
+        "wget --quiet --tries=5 -P {params.local_resources} {params.remote_location}homo_sapiens-chr{wildcards.chromosome}.vcf.gz"
 
 
 rule get_tbi_files:
@@ -19,7 +19,7 @@ rule get_tbi_files:
     params:
         local_resources=config["local_resources"]
     shell:
-        "tabix -p vcf {params.local_resources}/homo_sapiens-chr{wildcards.chromosome}.vcf.gz"
+        "tabix -p vcf {params.local_resources}homo_sapiens-chr{wildcards.chromosome}.vcf.gz"
 
 
 rule make_parquet_refs:
@@ -138,11 +138,12 @@ rule get_variation_tables:
         remote_location=config["remote_ensembl_variation"],
         local_resources=config["local_resources"]
     shell:
-        "wget -P {params.local_resources} {params.remote_location}variation.txt.gz; "
-        "wget -P {params.local_resources} {params.remote_location}variation_synonym.txt.gz"
+        "wget --quiet --tries=5 -P {params.local_resources} {params.remote_location}variation.txt.gz; "
+        "wget --quiet --tries=5 -P {params.local_resources} {params.remote_location}variation_synonym.txt.gz"
 
 
 rule make_local_synonyms_table:
+    priority: 100
     input:
         expand("{local}variation.txt.gz", local=config["local_resources"]),
         expand("{local}variation_synonym.txt.gz", local=config["local_resources"])

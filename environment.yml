@@ -13,3 +13,4 @@ dependencies:
 
   # bioconda channel packages second
   - bioconda::htslib=1.11
+  - bioconda::tabix

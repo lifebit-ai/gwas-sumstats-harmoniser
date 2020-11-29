@@ -9,7 +9,7 @@ RUN apt-get update -y  \
 
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
-ENV PATH /opt/conda/envs/gel-avt-env/bin:$PATH
+ENV PATH /opt/conda/envs/gwas-sumstats-harmoniser/bin:$PATH
 
 COPY requirements.txt /
 RUN pip install -r requirements.txt

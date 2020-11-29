@@ -1,0 +1,11 @@
+alias_snakemake.sh
+config.yaml
+harmoniser
+lsf.yaml
+README.md
+resources
+CARDIoGRAM_GWAS_RESULTS
+example_wrapper.sh
+input
+main.nf
+Snakefile
