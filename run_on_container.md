@@ -5,9 +5,9 @@
 ```bash
 mkdir input
 cd input
-wget http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SchunkertH_21378990_GCST000998/cardiogram_gwas_results.zip
-unzip cardiogram_gwas_results.zip
-mv CARDIoGRAM_GWAS_RESULTS.txt CARDIoGRAM_GWAS_RESULTS_38.tsv
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Ahola-OlliAV_27989323_GCST004428/harmonised/27989323-GCST004428-EFO_0008292-build37.f.tsv.gz
+gzip -d cardiogram_gwas_results.zip
+mv 27989323-GCST004428-EFO_0008292-build37.f.tsv 27989323-GCST004428-EFO_0008292_37.tsv
 ```
 
 ## Build docker container 
