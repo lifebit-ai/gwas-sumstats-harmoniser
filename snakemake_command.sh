@@ -11,4 +11,4 @@ docker run --init -u $(id -u):$(id -g) -v $PWD:$PWD -w $PWD -i lifebit-ai/gsh \
     --cores 30 \
     --keep-going \
     --rerun-incomplete \
-    input/CARDIoGRAM_GWAS_RESULTS_38/harmonised.qc.tsv
+    input/CTACK_data_38/harmonised.qc.tsv
